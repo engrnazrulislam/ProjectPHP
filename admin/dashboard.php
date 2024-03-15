@@ -24,7 +24,7 @@ if (isset($_SESSION['login']) != true) {
         </header>
         <main class="container mx-auto w-10/12">
             <!-- Grid Layout Section -->
-            <section class="grid gap-6 min-h-screen grid-cols-1 md:grid-cols-2 lg:grid-cols-12 mt-6">
+            <section class="grid gap-6 min-h-lvh grid-cols-1 md:grid-cols-2 lg:grid-cols-12 mt-6">
                 <div class="w-full shadow-2xl col-span-3 space-y-0 p-6">
                     <div class="collapse rounded-none">
                         <input type="checkbox" />
@@ -32,7 +32,8 @@ if (isset($_SESSION['login']) != true) {
                             User
                         </div>
                         <div class="collapse-content">
-                            <p><a href="user/createUser.php"target="main_content">Create User</a></p>
+                            <p><a href="user/createUser.php" target="main_content">Create User</a></p>
+                            <p><a href="user/showUser.php" target="main_content">Show Users</a></p>
                             <p><a href="user/editUser.php" target="main_content">Modify User</a></p>
                             <p><a href="#">Delete User</a></p>
                         </div>
@@ -72,7 +73,7 @@ if (isset($_SESSION['login']) != true) {
                     </div>
                 </div>
                 <div class="w-full bg-white shadow-2xl col-span-9">
-                <iframe src="" frameborder="0" name="main_content"class="p-6 w-full h-full"></iframe>
+                    <iframe src="" frameborder="0" name="main_content" class="p-6 w-full h-full"></iframe>
                 </div>
             </section>
         </main>

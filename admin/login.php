@@ -38,6 +38,7 @@ include('dbconn.php');
             if ($check_result == 1) {
                 $user_data=$query->fetch_assoc();
                 $_SESSION['username']=$user_data['uname'];
+                $_SESSION['photo']=$user_data['uphoto'];
                 $_SESSION['login']=true;
                 header('location:dashboard.php');
             } else {

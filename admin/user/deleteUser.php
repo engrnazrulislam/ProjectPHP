@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete User</title>
-</head>
-<body>
-    
-</body>
-</html>
+<?php
+ob_start();
+session_start();
+if (isset($_SESSION['login']) != true) {
+    header('location:../login.php');
+} else {
+    include("../dbconn.php");
+    if (isset ($_GET['slug'])) {
+        $id = $_GET['slug'];
+        $sqlSelect="SELECT * FROM ncs_user WHERE slug='$id'";
+        $selectQueryResult=$conn->query($sqlSelect);
+        $checkQueryResult=$selectQueryResult->num_rows;
+        if($checkQueryResult==1){
+            $sql="DELETE FROM ncs_user WHERE slug='$id'";
+            $delQuery=$conn->query($sql);
+            if($delQuery){
+                echo "Data is deleted successfully";
+            }
+            else{
+                echo "Data is deleted";
+            }
+        }else{
+            echo "Data is not founded";
+        }
+    }
+}
+?>

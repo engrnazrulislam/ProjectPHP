@@ -8,6 +8,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body bgcolor="skyblue">
-    <h1>Edit User</h1>
+   <?php
+   if(isset($_GET['slug'])){
+    $id=$_GET['slug'];
+    echo $id;
+   }
+   ?>
 </body>
 </html>

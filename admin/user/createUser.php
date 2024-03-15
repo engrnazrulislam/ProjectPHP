@@ -45,7 +45,8 @@ if (isset($_SESSION['login']) != true) {
                     $upload_file = 'img/' . $file_name;
                     move_uploaded_file($file_temp, $upload_file);
                 }
-                $insert_sql = "INSERT INTO ncs_user(uname, upass, fname, lname, umail, ucontact, uphoto) VALUES ('$userName','$password','$firstName','$lastName','$email','$contact','$upload_file')";
+                $slug=uniqid();
+                $insert_sql = "INSERT INTO ncs_user(uname, upass, fname, lname, umail, ucontact, uphoto, slug) VALUES ('$userName','$password','$firstName','$lastName','$email','$contact','$upload_file','$slug')";
                 $insertQuery = $conn->query($insert_sql);
                 if ($insertQuery) {
                     echo '<div class="container w-full mx-auto flex justify-center"><h3>Data is successfully inserted</h3></div>';

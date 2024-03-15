@@ -64,8 +64,8 @@ if (isset($_SESSION['login']) != true) {
                             <?php echo $queryResult['ucontact']; ?>
                         </td>
                         <td>
-                            <a href="editUser.php">Edit</a>
-                            <a href="deleteUser.php">Delete</a>
+                            <a href="editUser.php?slug=<?php echo $queryResult['slug'];?>">Edit</a>
+                            <a href="deleteUser.php?slug=<?php echo $queryResult['slug'];?>">Delete</a>
                         </td>
                     </tr>
                     <?php

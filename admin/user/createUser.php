@@ -55,7 +55,6 @@ if (isset($_SESSION['login']) != true) {
                 }
             }
         }
-        $conn->close();
         ?>
         <!-- User Creation Form Section -->
         <section class="container w-full mx-auto">
@@ -110,5 +109,6 @@ if (isset($_SESSION['login']) != true) {
 
 </html>
 <?php
+$conn->close();
 }
 ?>

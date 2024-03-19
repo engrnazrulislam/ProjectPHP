@@ -1,0 +1,65 @@
+<?php
+                if (isset ($_POST['submit'])) {
+                    $firstName = $_POST['firstName'];
+                    $lastName = $_POST['lastName'];
+                    $userName = $_POST['userName'];
+                    $password = md5($_POST['password']);
+                    $email = $_POST['email'];
+                    $contact = $_POST['contactNo'];
+
+                    $updateSQL = "UPDATE ncs_user
+                    SET uname='$userName', upass='$password', fname='$firstName',lname='$lastName',umail='$email',ucontact='$contact' WHERE slug='$id'";
+                    $updateQuery = $conn->query($updateSQL);
+                    if ($updateQuery) {
+                        echo "Data Updated Successfully";
+                        header("location:showUser.php");
+                    } else {
+                        echo "Data Update doesn't successful";
+                    }
+                }
+        ?>
+                <!-- User Creation Form Section -->
+                <section class="container w-full mx-auto">
+                    <form class="form-control space-y-6 p-6" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+                        <div class="grid grid-cols-2 items-center justify-center gap-6">
+                            <div>
+                                <label for="firstName">First Name:</label>
+                                <input type="text" name="firstName" id="" class="input input-bordered w-full max-w-xs"
+                                    placeholder="First Name">
+                            </div>
+                            <div>
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" name="lastName" id=" " class="input input-bordered w-full max-w-xs"
+                                    placeholder="Last Name">
+                            </div>
+                            <div>
+                                <label for="userName">User Name:</label>
+                                <input type="text" name="userName" id="" placeholder="User Name"
+                                    class="input input-bordered w-full max-w-xs">
+                            </div>
+                            <div>
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="" placeholder="password"
+                                     class="input input-bordered w-full max-w-xs">
+                            </div>
+                            <div>
+                                <label for="email">Email Address:</label>
+                                <input type="mail" name="email" id="" placeholder="Email Address"
+                                     class="input input-bordered w-full max-w-xs">
+                            </div>
+                            <div>
+                                <label for="contactNo">Contact:</label>
+                                <input type="text" name="contactNo" id="" placeholder="Contact No"
+                                     class="input input-bordered w-full max-w-xs">
+                            </div>
+                            <!-- <div>
+                                <label for="inputFile" class="">Select your photo:</label>
+                                <input type="file" name="u_file"
+                                    class="file-input file-input-bordered file-input-accent pl-0 w-full max-w-xs" />
+                            </div> -->
+                            <div>
+                                <label for="updated">Click on create user:</label>
+                                <input type="submit" name="submit" value="update"id="" class="btn btn-primary w-full max-w-xs" />
+                            </div>
+                        </div>
+                    </form>

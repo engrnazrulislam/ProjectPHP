@@ -33,9 +33,7 @@ if (isset($_SESSION['login']) != true) {
                         </div>
                         <div class="collapse-content">
                             <p><a href="user/createUser.php" target="main_content">Create User</a></p>
-                            <p><a href="user/showUser.php" target="main_content">Show Users</a></p>
-                            <p><a href="user/editUser.php" target="main_content">Modify User</a></p>
-                            <p><a href="#">Delete User</a></p>
+                            <p><a href="user/showUser.php" target="main_content">User Lists</a></p>
                         </div>
                     </div>
                     <div class="collapse rounded-none">

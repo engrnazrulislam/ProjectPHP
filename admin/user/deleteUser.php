@@ -15,12 +15,16 @@ if (isset($_SESSION['login']) != true) {
             $delQuery=$conn->query($sql);
             if($delQuery){
                 echo "Data is deleted successfully";
+                header('location:showUser.php');
             }
             else{
-                echo "Data is deleted";
+                echo "Data is not deleted";
+                header('location: showUser.php');
             }
         }else{
             echo "Data is not founded";
+            header('location:showUser.php');
+            $conn->close();
         }
     }
 }

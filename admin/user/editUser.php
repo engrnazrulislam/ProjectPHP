@@ -29,15 +29,15 @@ if (isset ($_SESSION['login']) != true) {
                 $pass = md5($_POST['upass']);
                 $email = $_POST['umail'];
                 $contact = $_POST['ucontact'];
-                
-                $photo_name=$_FILES['u_photo']['name'];
-                $photo_size=$_FILES['u_photo']['size'];
-                $photo_temp=$_FILES['u_photo']['tmp_name'];
+
+                $photo_name = $_FILES['u_photo']['name'];
+                $photo_size = $_FILES['u_photo']['size'];
+                $photo_temp = $_FILES['u_photo']['tmp_name'];
 
                 if ($photo_name == '') {
                     $upload_photo = 'img/demo.jpg';
                 } else {
-                    $upload_photo='img/'.$photo_name;
+                    $upload_photo = 'img/' . $photo_name;
                     move_uploaded_file($photo_temp, $upload_photo);
                 }
 
@@ -49,37 +49,47 @@ if (isset ($_SESSION['login']) != true) {
                     echo "Data is not updated";
                 }
             }
-    }
     ?>
         <!-- User Creation Form Section -->
         <section class="container w-full mx-auto">
-            <form class="form-control space-y-6 p-6" action="" method="POST"enctype="multipart/form-data">
+            <?php
+            $sltSql="SELECT * FROM ncs_user WHERE slug='$id'";
+            $sltQry=$conn->query($sltSql);
+            $slt_check=$sltQry->num_rows;
+            if($slt_check==1){
+                $sltResult=$sltQry->fetch_assoc();
+            ?>
+            <form class="form-control space-y-6 p-6" action="" method="POST" enctype="multipart/form-data">
                 <div class="grid grid-cols-2 items-center justify-center gap-6">
                     <div>
                         <label for="firstName">First Name:</label>
                         <input type="text" name="fname" id="" class="input input-bordered w-full max-w-xs"
-                            placeholder="First Name">
+                            placeholder="First Name" value="<?php echo $sltResult['fname'];?>">
                     </div>
                     <div>
                         <label for="lastName">Last Name:</label>
                         <input type="text" name="lname" id=" " class="input input-bordered w-full max-w-xs"
-                            placeholder="Last Name">
+                            placeholder="Last Name" value="<?php echo $sltResult['lname'];?>">
                     </div>
                     <div>
                         <label for="userName">User Name:</label>
-                        <input type="text" name="uname" id="" placeholder="User Name" class="input input-bordered w-full max-w-xs">
+                        <input type="text" name="uname" id="" placeholder="User Name" value="<?php echo $sltResult['uname'];?>"
+                            class="input input-bordered w-full max-w-xs">
                     </div>
                     <div>
                         <label for="password">Password:</label>
-                        <input type="password" name="upass" id="" placeholder="password" class="input input-bordered w-full max-w-xs">
+                        <input type="password" name="upass" id="" placeholder="Password"
+                            class="input input-bordered w-full max-w-xs">
                     </div>
                     <div>
                         <label for="email">Email Address:</label>
-                        <input type="mail" name="umail" id="" placeholder="Email Address" class="input input-bordered w-full max-w-xs">
+                        <input type="mail" name="umail" id="" placeholder="Email Address" value="<?php echo $sltResult['umail'];?>"
+                            class="input input-bordered w-full max-w-xs">
                     </div>
                     <div>
                         <label for="contactNo">Contact:</label>
-                        <input type="text" name="ucontact" id="" placeholder="Contact No" class="input input-bordered w-full max-w-xs">
+                        <input type="text" name="ucontact" id="" placeholder="Contact No" value="<?php echo $sltResult['ucontact'];?>"
+                            class="input input-bordered w-full max-w-xs">
                     </div>
                     <div>
                         <label for="inputFile" class="">Select your photo:</label>
@@ -92,10 +102,14 @@ if (isset ($_SESSION['login']) != true) {
                     </div>
                 </div>
             </form>
+        <?php
+            }
+        ?>
     </body>
 
     </html>
     <?php
+    }
     $conn->close();
 }
 ?>

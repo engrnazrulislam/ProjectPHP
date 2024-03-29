@@ -11,7 +11,7 @@
                 </div>
                 <ul tabindex="0"
                     class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-full lg:w-52">
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="../index.php">Home</a></li>
                     <li><a>About</a></li>
                     <li><a>Blogs</a></li>
                     <li><a>News</a></li>
@@ -20,13 +20,12 @@
                     <li><a>Contact</a></li>
                 </ul>
             </div>
-            <a href="index.php" class="btn btn-ghost text-2xl font-extrabold text-amber-400">NCS <span
-                    class="text-black">
+            <a href="../index.php" class="btn btn-ghost text-2xl font-extrabold text-amber-400">NCS <span class="text-black">
                     Ltd.</span></a>
         </div>
         <div class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal px-1">
-                <li><a class="text-base text-black" href="index.php">Home</a></li>
+        <ul class="menu menu-horizontal px-1">
+                <li><a class="text-base text-black" href="../index.php">Home</a></li>
                 <li class="dropdown dropdown-hover">
                         <div tabindex="0" role="button" class="text-base text-black">About</div>
                         <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
@@ -67,3 +66,4 @@
                 <li><a class="text-base text-black">Contact</a></li>
             </ul>
         </div>
+        

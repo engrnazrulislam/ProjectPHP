@@ -17,7 +17,7 @@ include('dbconn.php');
 <body>
     <header class="container mx-auto w-10/12 mt-7">
         <?php
-        include('../nav.php');
+        include('login_nav.php');
         ?>
         <div class="navbar-end">
             <a class="btn btn-ghost text-base text-black" href="login.php">login</a>
